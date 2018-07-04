@@ -19,6 +19,7 @@ namespace KnapsackProblemSolver.Web
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseIISIntegration()
                 .UseUrls("http://localhost:5000")
                 .UseStartup<Startup>();
     }
