@@ -46,13 +46,13 @@ namespace KnapsackProblemSolver.Web.Services
             });*/
         }
 
-        public Task RunTask(TaskModel taskToRun, CancellationToken cancellationToken)
+      /*  public Task RunTask(TaskModel taskToRun, CancellationToken cancellationToken)
         {
             var task = new Task(() => { });
             
             return task;
             //TaskScheduler
 
-        }
+        }*/
     }
 }

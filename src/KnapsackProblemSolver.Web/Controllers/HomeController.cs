@@ -48,9 +48,9 @@ namespace KnapsackProblemSolver.Web.Controllers
             };
             var newTask = new KnapssackTask(items, 13);
             _taskSolverService.AddTask(newTask);
-            ViewData["Message"] = "Your application description page.";
+            
 
-            return View();
+            return RedirectToAction("Index");
         }
         public IActionResult Create()
         {
