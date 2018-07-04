@@ -1,0 +1,59 @@
+@model KnapsackProblemSolver.Web.ViewModels.TaskDetailsViewModel
+ @{ ViewData["Title"] = "Инфромация о задаче"; /*"Задача №" + @model.taskNumber ;*/}
+
+<h2>Инфромация о задаче</h2>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>Номер задачи</dt>
+        <dd>@Model.TaskNumber</dd>
+
+        <dt>Статус</dt>
+        <dd>@Model.TaskStatus.GetString()</dd>
+
+    </dl>
+    <hr />
+<h3>Решение</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                Наименование предмета
+            </th>
+            <th>
+                Вес
+            </th>
+            <th>
+                Ценность
+            </th>
+        </tr>
+        </thead>
+        @foreach (var item in Model.Ans) {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Weight
+            </td>
+            <td>
+                @item.Value
+            </td>
+        </tr>
+        }
+        <tfoot>
+            <tr>
+                <td>
+                    
+                </td>
+                <td>
+                Макс. ценность
+                </td>
+                <td>
+                    @Model.MaxValue
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>

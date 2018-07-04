@@ -1,0 +1,35 @@
+﻿@model IEnumerable<KnapsackProblemSolver.Web.ViewModels.TaskDetailsViewModel>
+@using KnapsackProblemSolver.Web.Models;
+@{
+    ViewData["Title"] = "Все задачи";
+}
+
+<p><a asp-action="Create" role="button" class="btn btn-default">Добавить задачу</a></p>
+<hr />
+<h2>Все задачи</h2>
+<table  class="table">
+    <tr>
+         <th>
+                Номер задачи
+            </th>
+            <th>
+                Статус
+            </th>
+            <th>
+                Максимальная ценность
+            </th>
+            <th>
+                Список предметов
+            </th>
+        </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td><a asp-action="Details" asp-controller="Home" asp-route-tasknumber="@item.TaskNumber">@item.TaskNumber</a></td>
+            <td>@item.TaskStatus.GetString()</td>
+            <td>@item.MaxValue</td>
+            <td>@item.AnsStr</td>
+
+        </tr>
+    }
+</table>

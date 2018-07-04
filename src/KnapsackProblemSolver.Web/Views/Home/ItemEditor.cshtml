@@ -1,0 +1,22 @@
+@model KnapsackProblemSolver.Lib.Item;
+@using HtmlHelpers.BeginCollectionItemCore;
+@using ( Html.BeginCollectionItem( "Items" ) ) {
+<div class="row">
+    <div class="col-xs-2">
+        <label class="control-label">Наименование</label>
+        <input type="text" asp-for="Name" class="form-control">
+    </div>
+    <div class="col-xs-2">
+        <label class="control-label">Вес</label>
+        <input type="text" asp-for="Weight" class="form-control">
+    </div>
+    <div class="col-xs-2">
+        <label class="control-label">Ценность</label>
+        <input type="text" asp-for="Value" class="form-control">
+    </div>
+    <div class="col-xs-2">
+        <label class="control-label">_______</label>
+        <input type="button" id="removeitem" value="Удалить предмет" class="form-control btn btn-info">
+    </div>
+</div>
+}
