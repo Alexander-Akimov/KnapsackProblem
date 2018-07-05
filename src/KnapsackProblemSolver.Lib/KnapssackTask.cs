@@ -23,13 +23,15 @@ namespace KnapsackProblemSolver.Lib
             if (items == null || maxWeight <= 0)
                 throw new ArgumentException("Invalid Argumets");
 
-            this.Items = items;
+            this.Items = items.OrderBy(item => item.Weight).ToList();
             this.MaxWeight = maxWeight;
             A = new int[Items.Count + 1, MaxWeight + 1];
+
+            // Console.WriteLine(items.GetHashCode());
+            // Console.WriteLine(Items.GetHashCode() + "\n");
         }
         public List<Item> Solve()
         {
-            this.Sort();
             for (int i = 0; i <= MaxWeight; i++)
                 A[0, i] = 0;
 
@@ -46,9 +48,9 @@ namespace KnapsackProblemSolver.Lib
                         (A[k - 1, s]) : (A[k - 1, s - item.Weight] + item.Value);
                     else
                         A[k, s] = A[k - 1, s];
-                    Console.Write(A[k, s] + " ");
+                    //Console.Write(A[k, s] + " ");
                 }
-                Console.WriteLine();
+                //Console.WriteLine();
             }
 
             FindAns(Items.Count, MaxWeight);
@@ -59,12 +61,7 @@ namespace KnapsackProblemSolver.Lib
         {
             return Ans.Sum(item => item.Value);
         }
-        private void Sort()
-        {
-            var items = Items.OrderBy(item => item.Weight).ToList();
-            Items.Clear();
-            Items.AddRange(items);
-        }
+
 
         private void FindAns(int k, int s)
         {
